@@ -70,3 +70,10 @@ http://127.0.0.1:4321/ serves the final local production build. Use npm run prev
 ## WWS GitHub contract correction — 12 October 2026
 
 A later check against existing WWS recreation repositories found that the initial pipeline-format `site.json`/`pages.json` and catch-all route were not the current GitHub import contract. They have been replaced with canonical `content.json` → `pageContent`, seven explicit route files, declarative rich text, section/flex regions and a normal-flow header. The original comparison scores above describe the earlier pixel-matching build; see WWS_IMPORT_CHECK.md and QA_IMPORT_VIEWPORTS.json for import-compatible verification. The fixed source header no longer remains fixed while scrolling. Contact configuration is now `pageContent["/contact"].form.endpoint`.
+
+
+## Actual ingestion correction — 12 October 2026
+
+The earlier import-ready statement was unsupported: source file/build checks did not test WWS ingestion. The running importer lost Astro expressions, classes, navigation and images. A shared converter fix and semantic rejection gates now reproduce this repository offline through the actual WWS converter and renderer. All seven routes and audited CMS copy are present, navigation contains five top-level entries and three service children, and all 35 native renderer smoke captures pass. This is a local reviewed-branch test, not a deployed WWS import or pixel-perfect acceptance. No live site or database was written.
+
+Current status: **needs native layout review after importer rollout**. See WWS_IMPORT_CHECK.md for the actual-converter command and unresolved width/font/CSS/interaction constraints. The original visual scores above apply to the Astro recreation; they do not measure native WWS ingestion.

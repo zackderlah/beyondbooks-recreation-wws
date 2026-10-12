@@ -1,4 +1,4 @@
-name: WWS import checks
+name: Astro source checks (WWS ingestion is separate)
 on: [push, pull_request]
 permissions:
   contents: read

@@ -81,5 +81,5 @@ assert.ok(!/position:\s*fixed/.test(headerRule), 'WWS header must survive import
 function checkTemplates(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,entry.name);if(entry.isDirectory())checkTemplates(p);else if(entry.name.endsWith('.astro')){const source=fs.readFileSync(p,'utf8');assert.ok(!/set:html|innerHTML/.test(source), `Unsupported HTML injection: ${p}`);}}}
 checkTemplates(path.join(root,'src'));
 console.log(
-  'WWS CMS validation passed: 7 page files and pageContent entries, local assets, flex layout, supported templates, no pages.json or raw HTML fields.',
+  'Source structure validation passed: 7 page files and pageContent entries, local assets, flex layout, no pages.json or raw HTML fields. Actual WWS ingestion is not verified by this check.',
 );
