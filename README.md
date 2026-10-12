@@ -4,7 +4,9 @@ Seven pages recreated from https://www.beyondbooks.net.au/ using Astro, TypeScri
 
 ## Import into WWS
 
-Select this GitHub repository in WWS. The repository root is the project root; build command is `npm run build`, static output is `dist/`, Node version is 24.
+**Ingestion is not yet accepted.** The deployed importer produced a broken result; use the reviewed shared importer fix and complete native layout review before accepting or replacing a WWS site. See [the ingestion status](WWS_IMPORT_CHECK.md).
+
+Select this GitHub repository in WWS after that rollout. The repository root is the project root; build command is `npm run build`, static output is `dist/`, Node version is 24.
 
 - `src/cms/content.json` is the single editable content source: `{ "pageContent": { "/": {}, "/about": {} } }`.
 - Each original URL has a matching Astro file in `src/pages/`, including `index.astro` for home.
@@ -26,7 +28,7 @@ npm run build
 npm run preview -- --port 4321
 ```
 
-`npm run check` validates the CMS schema, route files, local asset references and WWS file/layout restrictions, then runs Astro checks. GitHub Actions runs these checks and the build on pushes and pull requests.
+`npm run check` validates the CMS schema, route files, local asset references and WWS file/layout restrictions, then runs Astro checks. GitHub Actions runs these source checks and the build on pushes and pull requests. These checks do not exercise WWS ingestion. The separate actual-converter gate in WWS_IMPORT_CHECK.md is required.
 
 `npm run import:export` produces an optional `wws-import/` bundle containing a manifest, `cms/content.json`, assets and the complete project. The generated directory is ignored by Git; GitHub import uses the repository source directly.
 
