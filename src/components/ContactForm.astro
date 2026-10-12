@@ -1,0 +1,74 @@
+---
+interface Props {
+  form: {
+    heading: string;
+    labels: string[];
+    options: string[];
+    placeholder: string;
+    submitLabel: string;
+    endpoint: string;
+    fallbackEmail: string;
+  };
+}
+const { form } = Astro.props;
+---
+
+<section class="email-column">
+  <h2 class="email-title">{form.heading}</h2>
+  <form
+    class="contact-form"
+    data-wws-form="contact"
+    data-endpoint={form.endpoint}
+    data-email={form.fallbackEmail}
+  >
+    <label for="name">{form.labels[0]}</label>
+    <input id="name" name="name" autocomplete="name" required />
+    <label for="email">{form.labels[1]}</label>
+    <input id="email" name="email" type="email" autocomplete="email" required />
+    <label for="phone">{form.labels[2]}</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" />
+    <label for="interest">{form.labels[3]}</label>
+    <select id="interest" name="interest">
+      {form.options.map((option) => (
+        <option>{option}</option>
+      ))}
+    </select>
+    <label for="message">{form.labels[4]}</label>
+    <textarea id="message" name="message" placeholder={form.placeholder} required></textarea>
+    <button type="submit">{form.submitLabel}</button>
+    <p class="form-status" role="status" aria-live="polite" hidden></p>
+  </form>
+</section>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-wws-form="contact"]');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = Object.fromEntries(new FormData(form));
+    const status = form.querySelector<HTMLElement>('.form-status')!;
+    const submit = form.querySelector<HTMLButtonElement>('button')!;
+    status.hidden = false;
+    if (!form.dataset.endpoint) {
+      const body = `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nInterest: ${data.interest}\n\n${data.message}`;
+      window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent('Beyond Books enquiry')}&body=${encodeURIComponent(body)}`;
+      status.textContent =
+        'Your email app will open with your enquiry. Please send it there to complete your message.';
+      return;
+    }
+    submit.disabled = true;
+    try {
+      const response = await fetch(form.dataset.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw Error();
+      status.textContent = 'Thank you. Your enquiry has been sent.';
+      form.reset();
+    } catch {
+      status.textContent = 'Your enquiry could not be sent. Please try again or call 0429 344 682.';
+    } finally {
+      submit.disabled = false;
+    }
+  });
+</script>

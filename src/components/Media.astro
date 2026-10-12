@@ -1,0 +1,32 @@
+---
+interface Props {
+  image?: { src: string; alt: string; variants?: Record<string, string> };
+  video?: { src: string; title: string };
+  class?: string;
+}
+const { image, video, class: className = '' } = Astro.props;
+---
+
+<div class:list={['media', className]}>
+  {video ? (
+    <iframe
+      src={video.src}
+      title={video.title}
+      width="640"
+      height="360"
+      allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  ) : image ? (
+    <picture>
+      {image.variants?.rwdMode_4 && (
+        <source media="(max-width:600px)" srcset={image.variants.rwdMode_4} />
+      )}{' '}
+      {image.variants?.rwdMode_2 && (
+        <source media="(max-width:1200px)" srcset={image.variants.rwdMode_2} />
+      )}
+      <img src={image.src} alt={image.alt} loading="eager" />
+    </picture>
+  ) : null}
+</div>

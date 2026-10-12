@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.beyondbooks.net.au/wws/content.schema.json",
+  "title": "Beyond Books WWS recreation content",
+  "description": "WWS GitHub content.json contract: pageContent keyed by original URL, with shared site details on the home entry. No raw HTML, CSS or geometry fields.",
+  "$defs": {
+    "run": {
+      "type": "object",
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "strong": {
+          "type": "boolean"
+        },
+        "tone": {
+          "enum": [
+            "accent",
+            "ink",
+            "body"
+          ]
+        },
+        "href": {
+          "type": "string"
+        },
+        "variant": {
+          "enum": [
+            "subtitle"
+          ]
+        }
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "p",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "ul",
+            "ol"
+          ]
+        },
+        "runs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/run"
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/run"
+            }
+          }
+        }
+      }
+    },
+    "richText": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/block"
+      }
+    },
+    "image": {
+      "type": "object",
+      "required": [
+        "src",
+        "alt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "variants": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "required": [
+        "src",
+        "title"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "src": {
+          "type": "string",
+          "pattern": "^https://player\\.vimeo\\.com/video/"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": [
+        "heading",
+        "image",
+        "body"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "heading": {
+          "$ref": "#/$defs/richText"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "body": {
+          "$ref": "#/$defs/richText"
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": [
+        "body"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/richText"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "video": {
+          "$ref": "#/$defs/video"
+        }
+      }
+    },
+    "form": {
+      "type": "object",
+      "required": [
+        "labels",
+        "options",
+        "endpoint",
+        "fallbackEmail"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "heading": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "submitLabel": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "fallbackEmail": {
+          "type": "string"
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": [
+        "slug",
+        "path",
+        "type",
+        "seo",
+        "heading"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "home",
+            "benefits",
+            "service",
+            "software",
+            "streamlining",
+            "about",
+            "contact"
+          ]
+        },
+        "seo": {
+          "type": "object",
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "canonical": {
+              "type": "string"
+            }
+          }
+        },
+        "heading": {
+          "type": "string"
+        },
+        "intro": {
+          "$ref": "#/$defs/richText"
+        },
+        "video": {
+          "$ref": "#/$defs/video"
+        },
+        "tagline": {
+          "$ref": "#/$defs/richText"
+        },
+        "consultation": {
+          "type": "object",
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "href": {
+              "type": "string"
+            }
+          }
+        },
+        "contactPrompt": {
+          "$ref": "#/$defs/richText"
+        },
+        "background": {
+          "$ref": "#/$defs/image"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/feature"
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/section"
+          }
+        },
+        "biography": {
+          "$ref": "#/$defs/richText"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "form": {
+          "$ref": "#/$defs/form"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "postalAddress": {
+          "type": "string"
+        },
+        "callLabel": {
+          "type": "string"
+        },
+        "callUrl": {
+          "type": "string"
+        },
+        "socialImages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/image"
+          }
+        },
+        "site": {
+          "$ref": "#/$defs/site"
+        }
+      }
+    },
+    "pages": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "/",
+          "/contact",
+          "/why-choose-beyond-books",
+          "/bookkeeping",
+          "/software-solutions",
+          "/streamlining-systems",
+          "/about"
+        ]
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/page"
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": [
+        "name",
+        "sourceUrl",
+        "logo",
+        "nav",
+        "footer",
+        "integrations"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "sourceUrl": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "logo": {
+          "$ref": "#/$defs/image"
+        },
+        "nav": {
+          "type": "array"
+        },
+        "social": {
+          "type": "object"
+        },
+        "footer": {
+          "type": "object"
+        },
+        "integrations": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": [
+    "pageContent"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "pageContent": {
+      "$ref": "#/$defs/pages"
+    }
+  }
+}

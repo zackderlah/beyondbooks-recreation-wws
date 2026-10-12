@@ -1,0 +1,117 @@
+---
+import type { Page } from '../cms/types';
+import cms from '../cms/content.json';
+const site = cms.pageContent['/'].site;
+import Layout from '../layouts/SiteLayout.astro';
+import RichText from '../components/RichText.astro';
+import Media from '../components/Media.astro';
+import ContactForm from '../components/ContactForm.astro';
+interface Props { page: Page }
+const { page } = Astro.props;
+---
+
+<Layout seo={page.seo} home={page.type === 'home'} type={page.type}>
+  {page.type === 'home' ? (
+    <main id="main"><section class="home-main">
+      <picture class="home-background" aria-hidden="true">
+        <source media="(max-width:600px)" srcset={page.background.variants.rwdMode_4} />
+        <source media="(max-width:1200px)" srcset={page.background.variants.rwdMode_2} />
+        <img src={page.background.src} alt="" />
+      </picture>
+      <section class="home-panel">
+        <RichText class="home-intro" blocks={page.intro} />
+        <Media class="home-video" video={page.video} />
+        <RichText class="home-tagline" blocks={page.tagline} />
+        <a class="consultation button" href={page.consultation.href}>
+          {page.consultation.label}
+        </a>
+        <RichText class="home-contact-prompt" blocks={page.contactPrompt} />
+        <div class="home-features">
+          {page.features.map((feature) => (
+            <article>
+              <RichText class="feature-heading" blocks={feature.heading} />
+              <Media image={feature.image} />
+              <RichText class="feature-body" blocks={feature.body} />
+            </article>
+          ))}
+        </div>
+      </section>
+    </section></main>
+  ) : (
+    <Fragment>
+      <section class="page-banner">
+        <h1>{page.heading}</h1>
+      </section>
+      <main id="main" class:list={['page-main', page.type === 'benefits' ? 'benefits-main' : page.type === 'service' ? 'service-main' : page.type === 'software' ? 'software-main' : page.type === 'streamlining' ? 'streamlining-main' : page.type === 'about' ? 'about-main' : 'contact-main']}>
+        {page.type === 'benefits' && (
+          <section class="benefits-grid">
+            {page.features.map((feature) => (
+              <article>
+                <RichText class="benefit-heading" blocks={feature.heading} />
+                <div class="benefit-rule"></div>
+                <Media image={feature.image} />
+                <RichText class="benefit-body" blocks={feature.body} />
+              </article>
+            ))}
+          </section>
+        )}
+        {(page.type === 'service' || page.type === 'software' || page.type === 'streamlining') && (
+          <section class="service-sections">
+            {page.sections.map((section, index) => (
+              <section class:list={['service-row', index === 0 ? 'row-0' : index === 1 ? 'row-1' : index === 2 ? 'row-2' : 'row-3']}>
+                <Media image={section.image} video={section.video} />
+                <RichText blocks={section.body} />
+              </section>
+            ))}
+          </section>
+        )}
+        {page.type === 'about' && (
+          <section class="about-grid">
+            <section class="about-text"><RichText class="about-intro" blocks={page.intro} /><RichText class="about-biography" blocks={page.biography} /></section>
+            <Media class="about-photo" image={page.image} />
+          </section>
+        )}
+        {page.type === 'contact' && (
+          <section class="contact-grid">
+            <ContactForm form={page.form} />
+            <section class="contact-details" aria-label="Contact details">
+              <div class="contact-line">
+                <h2>
+                  <span>Phone</span>
+                </h2>
+                <a href="tel:0429344682">{page.phone}</a>
+              </div>
+              <div class="contact-line">
+                <h2>
+                  <span>Postal</span> Address
+                </h2>
+                <p>{page.postalAddress}</p>
+              </div>
+              <div class="contact-line social-line">
+                <h2>
+                  <span>Social</span> Media
+                </h2>
+                <div class="contact-social">
+                  <a href={site.social.facebook} aria-label="Facebook">
+                    <img src={page.socialImages[0].src} alt="" />
+                  </a>
+                  <a href={site.social.linkedin} aria-label="LinkedIn">
+                    <img src={page.socialImages[1].src} alt="" />
+                  </a>
+                </div>
+              </div>
+              <div class="contact-line call-line">
+                <h2>
+                  <span>Google</span> Hangout
+                </h2>
+                <a class="button" href={page.callUrl}>
+                  {page.callLabel}
+                </a>
+              </div>
+            </section>
+          </section>
+        )}
+      </main>
+    </Fragment>
+  )}
+</Layout>

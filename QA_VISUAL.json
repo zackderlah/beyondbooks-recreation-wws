@@ -1,0 +1,316 @@
+{
+  "passes": 3,
+  "targetedFinalConfirmation": "Tablet home background was clipped to the source page height after the final dimension audit.",
+  "viewports": {
+    "desktop": [
+      1440,
+      900
+    ],
+    "tablet": [
+      1024,
+      768
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
+  "comparisons": [
+    {
+      "file": "home/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.014261422637590861,
+      "sourceDimensions": [
+        1440,
+        1605
+      ],
+      "generatedDimensions": [
+        1440,
+        1605
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "home/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.011225717723912669,
+      "sourceDimensions": [
+        390,
+        1939
+      ],
+      "generatedDimensions": [
+        390,
+        1939
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "home/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.014576876381869868,
+      "sourceDimensions": [
+        1024,
+        1583
+      ],
+      "generatedDimensions": [
+        1024,
+        1583
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "about/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.017560406000179645,
+      "sourceDimensions": [
+        1440,
+        1237
+      ],
+      "generatedDimensions": [
+        1440,
+        1237
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "about/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.038658514368993944,
+      "sourceDimensions": [
+        390,
+        2252
+      ],
+      "generatedDimensions": [
+        390,
+        2252
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "about/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.007724346058030481,
+      "sourceDimensions": [
+        1024,
+        1706
+      ],
+      "generatedDimensions": [
+        1024,
+        1706
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "software-solutions/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.021293650793650795,
+      "sourceDimensions": [
+        1440,
+        2450
+      ],
+      "generatedDimensions": [
+        1440,
+        2450
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "software-solutions/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.055603650066385776,
+      "sourceDimensions": [
+        390,
+        3341
+      ],
+      "generatedDimensions": [
+        390,
+        3341
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "software-solutions/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.017226633868757613,
+      "sourceDimensions": [
+        1024,
+        3284
+      ],
+      "generatedDimensions": [
+        1024,
+        3284
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "streamlining-systems/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.017865481321839082,
+      "sourceDimensions": [
+        1440,
+        1392
+      ],
+      "generatedDimensions": [
+        1440,
+        1392
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "streamlining-systems/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.06331444759206799,
+      "sourceDimensions": [
+        390,
+        2118
+      ],
+      "generatedDimensions": [
+        390,
+        2118
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "streamlining-systems/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.035493718620152354,
+      "sourceDimensions": [
+        1024,
+        1444
+      ],
+      "generatedDimensions": [
+        1024,
+        1444
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "why-choose-beyond-books/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.01819585244186982,
+      "sourceDimensions": [
+        1440,
+        1381
+      ],
+      "generatedDimensions": [
+        1440,
+        1381
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "why-choose-beyond-books/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.04097674170489705,
+      "sourceDimensions": [
+        390,
+        2884
+      ],
+      "generatedDimensions": [
+        390,
+        2884
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "why-choose-beyond-books/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.012497489863831089,
+      "sourceDimensions": [
+        1024,
+        1634
+      ],
+      "generatedDimensions": [
+        1024,
+        1634
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "bookkeeping/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.01589011180992313,
+      "sourceDimensions": [
+        1440,
+        1590
+      ],
+      "generatedDimensions": [
+        1440,
+        1590
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "bookkeeping/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.0346041205865487,
+      "sourceDimensions": [
+        390,
+        2504
+      ],
+      "generatedDimensions": [
+        390,
+        2504
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "bookkeeping/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.02671636209630911,
+      "sourceDimensions": [
+        1024,
+        1734
+      ],
+      "generatedDimensions": [
+        1024,
+        1734
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "contact/desktop.png",
+      "status": "compared",
+      "diffRatio": 0.01573878180013582,
+      "sourceDimensions": [
+        1440,
+        2127
+      ],
+      "generatedDimensions": [
+        1440,
+        2127
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "contact/mobile.png",
+      "status": "compared",
+      "diffRatio": 0.028373363417747825,
+      "sourceDimensions": [
+        390,
+        2591
+      ],
+      "generatedDimensions": [
+        390,
+        2591
+      ],
+      "dimensionsMatch": true
+    },
+    {
+      "file": "contact/tablet.png",
+      "status": "compared",
+      "diffRatio": 0.01750335693359375,
+      "sourceDimensions": [
+        1024,
+        1920
+      ],
+      "generatedDimensions": [
+        1024,
+        1920
+      ],
+      "dimensionsMatch": true
+    }
+  ],
+  "averagePixelDifference": 0.025014335528013687,
+  "allDimensionsMatch": true
+}

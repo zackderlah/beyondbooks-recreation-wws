@@ -1,0 +1,75 @@
+---
+import cms from '../cms/content.json';
+const site = cms.pageContent['/'].site;
+---
+
+<header class="site-header">
+  <section class="header-inner">
+    <a class="brand" href="/" aria-label="Beyond Books home">
+      <img src={site.logo.src} alt={site.logo.alt} width="91" height="99" />
+    </a>
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-controls="main-nav"
+      aria-expanded="false"
+      aria-label="Open navigation"
+    >
+      <svg viewBox="0 0 12 14" aria-hidden="true">
+        <path d="M12 10.5v1q0 .5-.5.5H.5q-.5 0-.5-.5v-1q0-.5.5-.5h11q.5 0 .5.5zm0-4v1q0 .5-.5.5H.5q-.5 0-.5-.5v-1q0-.5.5-.5h11q.5 0 .5.5zm0-4v1q0 .5-.5.5H.5q-.5 0-.5-.5v-1q0-.5.5-.5h11q.5 0 .5.5z" />
+      </svg>
+    </button>
+    <nav id="main-nav" aria-label="Main navigation">
+      <ul>
+        {site.nav.map((item) => (
+          <li>
+            {item.children?.length ? (
+              <details class="services-menu">
+                <summary>{item.label}</summary>
+                <ul>
+                  {item.children?.map((child) => (
+                    <li>
+                      <a href={child.href}>{child.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ) : (
+              <a
+                href={item.href}
+                aria-current={Astro.url.pathname === item.href ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </section>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    nav?.classList.toggle('open', open);
+  });
+  document.querySelectorAll<HTMLDetailsElement>('.services-menu').forEach((menu) => {
+    menu.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(min-width:1201px)').matches) menu.open = true;
+    });
+    menu.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(min-width:1201px)').matches) menu.open = false;
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav?.classList.remove('open');
+      document.querySelectorAll('details').forEach((x) => (x.open = false));
+    }
+  });
+</script>

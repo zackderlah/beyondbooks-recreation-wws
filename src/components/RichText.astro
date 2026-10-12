@@ -1,0 +1,54 @@
+---
+import Inline from './TextRuns.astro';
+interface Run {
+  text: string;
+  strong?: boolean;
+  tone?: string;
+  href?: string;
+  variant?: string;
+}
+interface Block {
+  type: string;
+  runs?: Run[];
+  items?: Run[][];
+}
+interface Props {
+  blocks: Block[];
+  class?: string;
+}
+const { blocks, class: className = '' } = Astro.props;
+---
+
+<div class:list={['rich-text', className]}>
+  {blocks.map((block) =>
+    (block.type === 'ul' || block.type === 'ol') ? (
+      <ul>
+        {block.items?.map((item) => (
+          <li>
+            <Inline runs={item} />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <Fragment>
+        {block.type === 'h1' ? (
+          <h1>
+            <Inline runs={block.runs || []} />
+          </h1>
+        ) : block.type === 'h2' ? (
+          <h2>
+            <Inline runs={block.runs || []} />
+          </h2>
+        ) : block.type === 'h3' ? (
+          <h3>
+            <Inline runs={block.runs || []} />
+          </h3>
+        ) : (
+          <p>
+            <Inline runs={block.runs || []} />
+          </p>
+        )}
+      </Fragment>
+    ),
+  )}
+</div>

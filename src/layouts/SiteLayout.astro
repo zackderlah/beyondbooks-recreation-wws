@@ -1,0 +1,30 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/site.css';
+interface Props {
+  seo: { title: string; description: string | null; canonical: string };
+  home?: boolean;
+  type?: string;
+}
+const { seo, home = false, type = '' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description || ''} />
+    <link rel="canonical" href={seo.canonical} />
+  </head>
+  <body class:list={[type, { 'home-page': home }]}>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <Header />
+    <slot />
+    {!home && <Footer />}
+  </body>
+</html>

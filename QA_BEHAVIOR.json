@@ -1,0 +1,51 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    },
+    {
+      "route": "/contact",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    },
+    {
+      "route": "/why-choose-beyond-books",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    },
+    {
+      "route": "/bookkeeping",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    },
+    {
+      "route": "/software-solutions",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    },
+    {
+      "route": "/streamlining-systems",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    },
+    {
+      "route": "/about",
+      "status": 200,
+      "h1": true,
+      "images": "loaded"
+    }
+  ],
+  "desktopDropdown": "passed",
+  "mobileMenu": "passed",
+  "formSuccess": "passed with intercepted local request",
+  "formFailure": "passed with intercepted local request",
+  "consoleErrors": []
+}

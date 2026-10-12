@@ -1,0 +1,6 @@
+---
+interface Run { text:string;strong?:boolean;tone?:string;href?:string;variant?:string }
+interface Props { runs: Run[] }
+const { runs } = Astro.props;
+---
+{runs.map(run => run.href ? <a href={run.href} class:list={[run.tone, run.variant, {bold:run.strong}]}>{run.text}</a> : <span class:list={[run.tone, run.variant, {bold:run.strong}]}>{run.text}</span>)}

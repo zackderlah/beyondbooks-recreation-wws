@@ -1,0 +1,29 @@
+---
+import cms from '../cms/content.json';
+const site = cms.pageContent['/'].site;
+import RichText from './RichText.astro';
+---
+
+<footer class="site-footer">
+  <section class="footer-inner">
+    <a class="footer-logo" href="/">
+      <img src={site.footer.logo.src} alt={site.footer.logo.alt} />
+    </a>
+    <RichText class="footer-business" blocks={site.footer.business} />
+    <RichText class="footer-address" blocks={site.footer.address} />
+    {site.footer.certifications.map((image, index) => (
+      <div class:list={['certification', index === 0 ? 'cert-0' : index === 1 ? 'cert-1' : index === 2 ? 'cert-2' : 'cert-3']}>
+        <img src={image.src} alt={image.alt} />
+      </div>
+    ))}
+    <div class="footer-social">
+      <a href={site.social.facebook} aria-label="Facebook">
+        <img src={site.footer.socialImages[0].src} alt="" />
+      </a>
+      <a href={site.social.linkedin} aria-label="LinkedIn">
+        <img src={site.footer.socialImages[1].src} alt="" />
+      </a>
+    </div>
+  </section>
+  <section><RichText class="footer-credits" blocks={site.footer.credits} /></section>
+</footer>

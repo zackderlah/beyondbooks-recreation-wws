@@ -1,0 +1,7 @@
+---
+import cms from '../cms/content.json';
+import type {Page} from '../cms/types';
+import PageTemplate from '../templates/PageTemplate.astro';
+const page = cms.pageContent["/about"] as unknown as Page;
+---
+<PageTemplate page={page} />

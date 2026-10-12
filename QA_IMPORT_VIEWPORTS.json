@@ -1,0 +1,365 @@
+{
+  "contract": "WWS GitHub import",
+  "checked": "2026-10-12",
+  "checks": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        1605
+      ],
+      "referenceDimensions": [
+        1440,
+        1605
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        1583
+      ],
+      "referenceDimensions": [
+        1024,
+        1583
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        1939
+      ],
+      "referenceDimensions": [
+        390,
+        1939
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/why-choose-beyond-books",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        1381
+      ],
+      "referenceDimensions": [
+        1440,
+        1381
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/why-choose-beyond-books",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        1634
+      ],
+      "referenceDimensions": [
+        1024,
+        1634
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/why-choose-beyond-books",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        2884
+      ],
+      "referenceDimensions": [
+        390,
+        2884
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/bookkeeping",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        1590
+      ],
+      "referenceDimensions": [
+        1440,
+        1590
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/bookkeeping",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        1734
+      ],
+      "referenceDimensions": [
+        1024,
+        1734
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/bookkeeping",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        2504
+      ],
+      "referenceDimensions": [
+        390,
+        2504
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/software-solutions",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        2450
+      ],
+      "referenceDimensions": [
+        1440,
+        2450
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/software-solutions",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        3284
+      ],
+      "referenceDimensions": [
+        1024,
+        3284
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/software-solutions",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        3341
+      ],
+      "referenceDimensions": [
+        390,
+        3341
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/streamlining-systems",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        1392
+      ],
+      "referenceDimensions": [
+        1440,
+        1392
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/streamlining-systems",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        1444
+      ],
+      "referenceDimensions": [
+        1024,
+        1444
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/streamlining-systems",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        2118
+      ],
+      "referenceDimensions": [
+        390,
+        2118
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/about",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        1237
+      ],
+      "referenceDimensions": [
+        1440,
+        1237
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/about",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        1706
+      ],
+      "referenceDimensions": [
+        1024,
+        1706
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/about",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        2252
+      ],
+      "referenceDimensions": [
+        390,
+        2252
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/contact",
+      "viewport": "desktop",
+      "status": 200,
+      "dimensions": [
+        1440,
+        2127
+      ],
+      "referenceDimensions": [
+        1440,
+        2127
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/contact",
+      "viewport": "tablet",
+      "status": 200,
+      "dimensions": [
+        1024,
+        1920
+      ],
+      "referenceDimensions": [
+        1024,
+        1920
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    },
+    {
+      "route": "/contact",
+      "viewport": "mobile",
+      "status": 200,
+      "dimensions": [
+        390,
+        2591
+      ],
+      "referenceDimensions": [
+        390,
+        2591
+      ],
+      "dimensionsMatch": true,
+      "localImages": "passed",
+      "header": "normal flow",
+      "grids": 0
+    }
+  ],
+  "mobileNavigation": "passed",
+  "pageErrors": []
+}
